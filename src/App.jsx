@@ -15,6 +15,15 @@ export default function AccelerateWebsite() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
+    // Add smooth scroll behavior to the entire document
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = '';
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       setShowScrollTop(window.scrollY > 300);
@@ -59,21 +68,25 @@ export default function AccelerateWebsite() {
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <svg className="absolute w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: "#dbeafe", stopOpacity: 0.8 }} />
-              <stop offset="100%" style={{ stopColor: "#bfdbfe", stopOpacity: 0.6 }} />
-            </linearGradient>
-          </defs>
-          <path d="M0,0 L0,400 Q360,320 720,400 T1440,400 L1440,0 Z" fill="url(#grad1)" opacity="0.6" />
-          <path d="M0,0 L0,280 Q360,200 720,280 T1440,280 L1440,0 Z" fill="url(#grad1)" opacity="0.4" />
-          <ellipse cx="200" cy="150" rx="300" ry="200" fill="#e0f2fe" opacity="0.3" />
-          <ellipse cx="1200" cy="250" rx="350" ry="250" fill="#dbeafe" opacity="0.4" />
-        </svg>
-      </div>
-
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <svg className="absolute w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style={{ stopColor: "#dbeafe", stopOpacity: 0.8 }} />
+        <stop offset="100%" style={{ stopColor: "#bfdbfe", stopOpacity: 0.6 }} />
+      </linearGradient>
+    </defs>
+    <path d="M0,0 L0,500 Q360,400 720,500 T1440,500 L1440,0 Z" fill="url(#grad1)" opacity="0.6" />
+    <path d="M0,0 L0,350 Q360,250 720,350 T1440,350 L1440,0 Z" fill="url(#grad1)" opacity="0.4" />
+    <ellipse cx="200" cy="200" rx="400" ry="250" fill="#e0f2fe" opacity="0.3" />
+    <ellipse cx="1200" cy="300" rx="450" ry="300" fill="#dbeafe" opacity="0.4" />
+  </svg>
+  <div className="absolute top-20 right-1/4 text-blue-300 text-xl">✦</div>
+  <div className="absolute top-40 right-1/3 text-blue-400 text-sm">✦</div>
+  <div className="absolute bottom-32 right-1/4 text-blue-300 text-2xl">✦</div>
+  <div className="absolute bottom-48 right-1/3 text-blue-400 text-xs">✦</div>
+  <div className="absolute top-1/2 right-20 text-blue-300 text-lg">✦</div>
+</div>
       <nav className={`fixed top-0 left-0 right-0 z-50 px-8 py-3 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
@@ -81,7 +94,7 @@ export default function AccelerateWebsite() {
               <img
                 src="/logo1.png"
                 alt="Accelerate - Learn, Innovate"
-                className="h-17 w-auto object-contain"
+                className="h-16 w-auto object-contain"
                 onError={(e) => {
                   e.target.style.display = "none";
                   e.target.nextSibling.style.display = "flex";
@@ -140,12 +153,13 @@ export default function AccelerateWebsite() {
         </div>
       </nav>
 
-      <div id="hero" className="relative z-10 max-w-7xl mx-auto px-8 py-12 pt-28 grid md:grid-cols-2 gap-8 items-center">
+      <div id="hero" className="relative z-10 min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto px-8 py-12 grid md:grid-cols-2 gap-8 items-center w-full">
         <div className="space-y-8">
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight" style={{ color: "#1e3a5f" }}>
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight" style={{ color: "#1e3a5f", fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             Empowering Digital Transformation
           </h1>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light tracking-wide">
             Accelerate helps businesses design and develop scalable, secure, and user-friendly digital solutions.
           </p>
           <a href="#contact">
@@ -160,13 +174,14 @@ export default function AccelerateWebsite() {
        <div className="relative flex items-center justify-center scale-125">
   <img src="/Image1.png" alt="Digital Transformation" className="w-full" />
 </div>
+        </div>
       </div>
 
       <div id="features" className="relative z-10 bg-gradient-to-b from-blue-50 to-white py-20 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1e3a5f" }}>Our Services</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Comprehensive solutions tailored to meet your business and educational needs</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight" style={{ color: "#1e3a5f", fontFamily: 'system-ui, -apple-system, sans-serif' }}>Our Services</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light tracking-wide">Comprehensive solutions tailored to meet your business and educational needs</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-blue-100">
