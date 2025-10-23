@@ -49,6 +49,30 @@ export default function AccelerateWebsite() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach(el => observer.observe(el));
+
+    return () => {
+      animatedElements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -103,7 +127,6 @@ export default function AccelerateWebsite() {
           />
         </svg>
 
-        {/* Abstract curved shapes */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-slate-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-slate-300/20 rounded-full blur-3xl"></div>
       </div>
@@ -116,6 +139,8 @@ export default function AccelerateWebsite() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
+                <a
+                href="#hero">
               <img
                 src="/logo1.png"
                 alt="Accelerate - Learn, Innovate"
@@ -125,6 +150,7 @@ export default function AccelerateWebsite() {
                   e.target.nextSibling.style.display = "flex";
                 }}
               />
+              </a>
               <div
                 className="hidden items-center gap-2"
                 style={{ display: "none" }}
@@ -181,7 +207,6 @@ export default function AccelerateWebsite() {
               </a>
             </div>
 
-            {/* Hamburger Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden relative w-6 h-5 bg-transparent cursor-pointer"
@@ -209,7 +234,6 @@ export default function AccelerateWebsite() {
             </button>
           </div>
 
-          {/* Mobile Menu */}
           {mobileMenuOpen && (
             <div className="md:hidden bg-white shadow-lg border-t border-slate-100 py-4 mt-3 rounded-lg">
               <div className="flex flex-col gap-2 px-4">
@@ -265,7 +289,7 @@ export default function AccelerateWebsite() {
 
       <div
         id="hero"
-        className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0"
+        className="relative min-h-[auto] md:min-h-screen flex items-center overflow-hidden pt-20 pb-8 md:pt-0 md:pb-0"
       >
         <div className="absolute inset-0 z-0">
           <div className="absolute top-10 md:top-0 right-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-slate-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
@@ -292,11 +316,56 @@ export default function AccelerateWebsite() {
           .animation-delay-4000 {
             animation-delay: 4s;
           }
+
+          .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+          }
+
+          .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          }
+
+          .scroll-animate-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+          }
+
+          .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          }
+
+          .scroll-animate-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+          }
+
+          .scroll-animate-delay-1 {
+            transition-delay: 0.1s;
+          }
+
+          .scroll-animate-delay-2 {
+            transition-delay: 0.2s;
+          }
+
+          .scroll-animate-delay-3 {
+            transition-delay: 0.3s;
+          }
         `}</style>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6 sm:space-y-8 md:order-1 text-center md:text-left">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 lg:gap-12 items-center">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 md:order-1 text-center md:text-left w-full">
               <h1
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-slate-900"
                 style={{
@@ -307,11 +376,11 @@ export default function AccelerateWebsite() {
                 Transform Your Vision Into Digital Reality
               </h1>
 
-              <div className="md:hidden relative flex items-center justify-center my-8 z-10">
+              <div className="md:hidden relative flex items-center justify-center my-6 z-10">
                 <img
                   src="/Image1.png"
                   alt="Digital Transformation Solutions"
-                  className="w-full max-w-sm"
+                  className="w-full max-w-md"
                 />
               </div>
 
@@ -321,7 +390,7 @@ export default function AccelerateWebsite() {
                 business growth and prepare tomorrow's tech talent.
               </p>
 
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center md:justify-start pt-2">
                 <a href="#contact">
                   <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-slate-700 to-slate-900 text-white rounded-full font-semibold text-base sm:text-lg flex items-center gap-3 hover:shadow-xl transition-all duration-300 hover:scale-105">
                     Schedule a Consultation
@@ -359,7 +428,7 @@ export default function AccelerateWebsite() {
         className="relative z-10 bg-gradient-to-b from-slate-50 to-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-12 sm:mb-16 scroll-animate">
             <h2
               className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-slate-900"
               style={{
@@ -374,7 +443,7 @@ export default function AccelerateWebsite() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-slate-100">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-slate-100 scroll-animate scroll-animate-delay-1">
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl flex items-center justify-center mb-6">
                 <svg
                   className="w-7 h-7 sm:w-8 sm:h-8 text-white"
@@ -401,7 +470,7 @@ export default function AccelerateWebsite() {
                 cutting-edge technologies and agile methodologies.
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-slate-100">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-slate-100 scroll-animate scroll-animate-delay-2">
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl flex items-center justify-center mb-6">
                 <svg
                   className="w-7 h-7 sm:w-8 sm:h-8 text-white"
@@ -473,7 +542,7 @@ export default function AccelerateWebsite() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6 order-2 md:order-1">
+            <div className="space-y-6 order-2 md:order-1 scroll-animate scroll-animate-left">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-900">
                 Your Strategic Technology Partner
               </h2>
@@ -546,11 +615,13 @@ export default function AccelerateWebsite() {
                   </p>
                 </div>
               </div>
+              <a href="#contact">
               <button className="px-6 sm:px-8 py-3 bg-gradient-to-r from-slate-700 to-slate-900 text-white rounded-lg font-semibold text-base sm:text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 Discover Our Approach
               </button>
+             </a>
             </div>
-            <div className="relative order-1 md:order-2">
+            <div className="relative order-1 md:order-2 scroll-animate scroll-animate-right">
               <img
                 src="/Image2.png"
                 alt="Technology Partnership"
@@ -566,7 +637,7 @@ export default function AccelerateWebsite() {
         className="relative z-10 bg-gradient-to-b from-slate-50 to-white py-20 px-8"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
               Get In Touch
             </h2>
@@ -576,7 +647,7 @@ export default function AccelerateWebsite() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 shadow-lg scroll-animate scroll-animate-left">
               <div className="space-y-6">
                 <div>
                   <label className="block text-slate-700 font-medium mb-2">
@@ -651,7 +722,7 @@ export default function AccelerateWebsite() {
                 </button>
               </div>
             </div>
-            <div className="space-y-8">
+            <div className="space-y-8 scroll-animate scroll-animate-right">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -911,6 +982,29 @@ export default function AccelerateWebsite() {
           </div>
         </div>
       </footer>
+
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+          aria-label="Scroll to top"
+        >
+          <svg
+            className="w-6 h-6 group-hover:-translate-y-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 15l7-7 7 7"
+            />
+          </svg>
+        </button>
+      )}
+
     </div>
   );
 }
