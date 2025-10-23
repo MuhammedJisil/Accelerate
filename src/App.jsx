@@ -72,8 +72,12 @@ export default function AccelerateWebsite() {
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
- <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <svg
+          className="absolute top-0 left-0 w-full h-full"
+          viewBox="0 0 1440 800"
+          preserveAspectRatio="xMidYMid slice"
+        >
           <path
             d="M0,300 Q360,200 720,300 T1440,300 L1440,0 L0,0 Z"
             fill="rgba(226, 232, 240, 0.3)"
@@ -83,8 +87,12 @@ export default function AccelerateWebsite() {
             fill="rgba(203, 213, 225, 0.2)"
           />
         </svg>
-        
-        <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+
+        <svg
+          className="absolute bottom-0 left-0 w-full h-full"
+          viewBox="0 0 1440 800"
+          preserveAspectRatio="xMidYMid slice"
+        >
           <path
             d="M0,600 Q360,700 720,600 T1440,600 L1440,800 L0,800 Z"
             fill="rgba(226, 232, 240, 0.4)"
@@ -129,7 +137,7 @@ export default function AccelerateWebsite() {
                 </span>
               </div>
             </div>
-            
+
             <div className="hidden md:flex items-center gap-4 lg:gap-6">
               <a
                 href="#hero"
@@ -173,38 +181,37 @@ export default function AccelerateWebsite() {
               </a>
             </div>
 
+            {/* Hamburger Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-slate-600 hover:text-slate-900 transition"
+              className="md:hidden relative w-6 h-5 bg-transparent cursor-pointer"
               aria-label="Toggle menu"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                {mobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
+              <span
+                className={`block absolute h-0.5 w-full bg-slate-900 rounded-full left-0 transition-all duration-300 ease-in-out origin-left ${
+                  mobileMenuOpen
+                    ? "top-0 rotate-45 translate-x-1"
+                    : "top-0 rotate-0 translate-x-0"
+                }`}
+              />
+              <span
+                className={`block absolute h-0.5 w-full bg-slate-900 rounded-full left-0 top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out origin-left ${
+                  mobileMenuOpen ? "w-0 opacity-0" : "w-full opacity-100"
+                }`}
+              />
+              <span
+                className={`block absolute h-0.5 w-full bg-slate-900 rounded-full left-0 bottom-0 transition-all duration-300 ease-in-out origin-left ${
+                  mobileMenuOpen
+                    ? "-rotate-45 translate-x-1"
+                    : "rotate-0 translate-x-0"
+                }`}
+              />
             </button>
           </div>
 
+          {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-slate-100 py-4">
+            <div className="md:hidden bg-white shadow-lg border-t border-slate-100 py-4 mt-3 rounded-lg">
               <div className="flex flex-col gap-2 px-4">
                 <a
                   href="#hero"
@@ -264,7 +271,7 @@ export default function AccelerateWebsite() {
           <div className="absolute top-10 md:top-0 right-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-slate-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
           <div className="absolute top-32 md:top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-slate-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
           <div className="absolute bottom-10 left-1/2 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-slate-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
-          
+
           <div className="absolute top-20 right-1/4 w-48 sm:w-64 h-48 sm:h-64 border border-slate-200/40 rounded-full opacity-20"></div>
           <div className="absolute bottom-32 left-1/4 w-36 sm:w-48 h-36 sm:h-48 border border-slate-200/40 rounded-full opacity-20"></div>
           <div className="absolute top-1/2 right-1/3 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-slate-200/30 to-transparent rounded-lg transform rotate-45 opacity-30"></div>
@@ -294,12 +301,12 @@ export default function AccelerateWebsite() {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-slate-900"
                 style={{
                   fontFamily: "system-ui, -apple-system, sans-serif",
-                  fontWeight: 600
+                  fontWeight: 600,
                 }}
               >
                 Transform Your Vision Into Digital Reality
               </h1>
-              
+
               <div className="md:hidden relative flex items-center justify-center my-8 z-10">
                 <img
                   src="/Image1.png"
@@ -307,11 +314,13 @@ export default function AccelerateWebsite() {
                   className="w-full max-w-sm"
                 />
               </div>
-              
+
               <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-light tracking-wide">
-                We deliver enterprise-grade software solutions and industry-focused training programs that drive measurable business growth and prepare tomorrow's tech talent.
+                We deliver enterprise-grade software solutions and
+                industry-focused training programs that drive measurable
+                business growth and prepare tomorrow's tech talent.
               </p>
-              
+
               <div className="flex justify-center md:justify-start">
                 <a href="#contact">
                   <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-slate-700 to-slate-900 text-white rounded-full font-semibold text-base sm:text-lg flex items-center gap-3 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -345,7 +354,6 @@ export default function AccelerateWebsite() {
         </div>
       </div>
 
-
       <div
         id="features"
         className="relative z-10 bg-gradient-to-b from-slate-50 to-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
@@ -361,7 +369,8 @@ export default function AccelerateWebsite() {
               Comprehensive Solutions for Your Success
             </h2>
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-light tracking-wide px-4">
-              End-to-end services designed to accelerate your digital journey and empower your team
+              End-to-end services designed to accelerate your digital journey
+              and empower your team
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
@@ -381,13 +390,15 @@ export default function AccelerateWebsite() {
                   />
                 </svg>
               </div>
-              <h3
-                className="text-xl sm:text-2xl font-bold mb-4 text-slate-900"
-              >
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900">
                 Enterprise Software Development
               </h3>
               <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                Build robust, scalable applications tailored to your business needs. From cloud-native microservices to full-stack web platforms, we architect solutions that enhance operational efficiency, reduce costs, and accelerate time-to-market with cutting-edge technologies and agile methodologies.
+                Build robust, scalable applications tailored to your business
+                needs. From cloud-native microservices to full-stack web
+                platforms, we architect solutions that enhance operational
+                efficiency, reduce costs, and accelerate time-to-market with
+                cutting-edge technologies and agile methodologies.
               </p>
             </div>
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-slate-100">
@@ -406,18 +417,16 @@ export default function AccelerateWebsite() {
                   />
                 </svg>
               </div>
-              <h3
-                className="text-xl sm:text-2xl font-bold mb-4 text-slate-900"
-              >
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900">
                 Career Acceleration Program with Dimension
               </h3>
               <p className="text-slate-600 mb-6 text-sm sm:text-base">
-                A comprehensive bootcamp designed for college students to bridge the academic-industry gap and launch successful tech careers with confidence.
+                A comprehensive bootcamp designed for college students to bridge
+                the academic-industry gap and launch successful tech careers
+                with confidence.
               </p>
               <div className="space-y-4">
-                <h4
-                  className="font-semibold text-base sm:text-lg text-slate-900"
-                >
+                <h4 className="font-semibold text-base sm:text-lg text-slate-900">
                   What You'll Master:
                 </h4>
                 <div className="space-y-3">
@@ -435,15 +444,21 @@ export default function AccelerateWebsite() {
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">Real-world Industry Projects & Portfolio Development</p>
+                    <p className="text-slate-600 text-sm sm:text-base">
+                      Real-world Industry Projects & Portfolio Development
+                    </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">24/7 Expert Mentorship & Doubt Resolution</p>
+                    <p className="text-slate-600 text-sm sm:text-base">
+                      24/7 Expert Mentorship & Doubt Resolution
+                    </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">Interview Preparation & Career Guidance</p>
+                    <p className="text-slate-600 text-sm sm:text-base">
+                      Interview Preparation & Career Guidance
+                    </p>
                   </div>
                 </div>
               </div>
@@ -452,17 +467,22 @@ export default function AccelerateWebsite() {
         </div>
       </div>
 
-      <div id="about" className="relative z-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div
+        id="about"
+        className="relative z-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6 order-2 md:order-1">
-              <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-900"
-              >
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-900">
                 Your Strategic Technology Partner
               </h2>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                We collaborate with startups, growing businesses, and established enterprises to architect and deploy innovative technology solutions that deliver measurable ROI. Our expertise spans modern tech stacks, cloud infrastructure, and agile development practices.
+                We collaborate with startups, growing businesses, and
+                established enterprises to architect and deploy innovative
+                technology solutions that deliver measurable ROI. Our expertise
+                spans modern tech stacks, cloud infrastructure, and agile
+                development practices.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -547,9 +567,7 @@ export default function AccelerateWebsite() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2
-              className="text-4xl md:text-5xl font-bold mb-4 text-slate-900"
-            >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
               Get In Touch
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -652,9 +670,7 @@ export default function AccelerateWebsite() {
                     </svg>
                   </div>
                   <div>
-                    <h3
-                      className="font-bold text-lg mb-2 text-slate-900"
-                    >
+                    <h3 className="font-bold text-lg mb-2 text-slate-900">
                       Phone
                     </h3>
                     <a
@@ -688,9 +704,7 @@ export default function AccelerateWebsite() {
                     </svg>
                   </div>
                   <div>
-                    <h3
-                      className="font-bold text-lg mb-2 text-slate-900"
-                    >
+                    <h3 className="font-bold text-lg mb-2 text-slate-900">
                       Email
                     </h3>
                     <a
@@ -718,9 +732,7 @@ export default function AccelerateWebsite() {
                     </svg>
                   </div>
                   <div>
-                    <h3
-                      className="font-bold text-lg mb-2 text-slate-900"
-                    >
+                    <h3 className="font-bold text-lg mb-2 text-slate-900">
                       Business Hours
                     </h3>
                     <p className="text-slate-600">
@@ -791,7 +803,7 @@ export default function AccelerateWebsite() {
               <h3 className="text-lg font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                   <a
+                  <a
                     href="#"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -799,7 +811,7 @@ export default function AccelerateWebsite() {
                   </a>
                 </li>
                 <li>
-                   <a
+                  <a
                     href="#features"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -807,7 +819,7 @@ export default function AccelerateWebsite() {
                   </a>
                 </li>
                 <li>
-                   <a
+                  <a
                     href="#about"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -815,7 +827,7 @@ export default function AccelerateWebsite() {
                   </a>
                 </li>
                 <li>
-                   <a
+                  <a
                     href="#contact"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -828,7 +840,7 @@ export default function AccelerateWebsite() {
               <h3 className="text-lg font-bold mb-4">Services</h3>
               <ul className="space-y-2">
                 <li>
-                   <a
+                  <a
                     href="#features"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -836,7 +848,7 @@ export default function AccelerateWebsite() {
                   </a>
                 </li>
                 <li>
-                   <a
+                  <a
                     href="#features"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -844,7 +856,7 @@ export default function AccelerateWebsite() {
                   </a>
                 </li>
                 <li>
-                   <a
+                  <a
                     href="#contact"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -852,7 +864,7 @@ export default function AccelerateWebsite() {
                   </a>
                 </li>
                 <li>
-                   <a
+                  <a
                     href="#contact"
                     className="text-slate-400 hover:text-white transition"
                   >
@@ -881,7 +893,7 @@ export default function AccelerateWebsite() {
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
                 </a>
-                 <a
+                <a
                   href="https://www.linkedin.com/company/acceleratein/?viewAsMember=true"
                   className="text-slate-400 hover:text-white transition"
                   aria-label="LinkedIn"
