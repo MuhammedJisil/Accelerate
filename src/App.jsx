@@ -52,24 +52,27 @@ export default function AccelerateWebsite() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: "0px 0px -100px 0px",
     };
 
     const observerCallback = (entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+          entry.target.classList.add("animate-in");
         }
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
-    const animatedElements = document.querySelectorAll('.scroll-animate');
-    animatedElements.forEach(el => observer.observe(el));
+    const animatedElements = document.querySelectorAll(".scroll-animate");
+    animatedElements.forEach((el) => observer.observe(el));
 
     return () => {
-      animatedElements.forEach(el => observer.unobserve(el));
+      animatedElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
@@ -104,11 +107,11 @@ export default function AccelerateWebsite() {
         >
           <path
             d="M0,300 Q360,200 720,300 T1440,300 L1440,0 L0,0 Z"
-            fill="rgba(226, 232, 240, 0.3)"
+            fill="rgba(20, 184, 166, 0.15)"
           />
           <path
             d="M0,500 Q360,400 720,500 T1440,500 L1440,0 L0,0 Z"
-            fill="rgba(203, 213, 225, 0.2)"
+            fill="rgba(0, 139, 139, 0.1)"
           />
         </svg>
 
@@ -119,16 +122,16 @@ export default function AccelerateWebsite() {
         >
           <path
             d="M0,600 Q360,700 720,600 T1440,600 L1440,800 L0,800 Z"
-            fill="rgba(226, 232, 240, 0.4)"
+            fill="rgba(20, 184, 166, 0.2)"
           />
           <path
             d="M0,700 Q360,650 720,700 T1440,700 L1440,800 L0,800 Z"
-            fill="rgba(241, 245, 249, 0.5)"
+            fill="rgba(0, 139, 139, 0.15)"
           />
         </svg>
 
-        <div className="absolute top-20 right-10 w-96 h-96 bg-slate-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-slate-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl"></div>
       </div>
 
       <nav
@@ -139,26 +142,25 @@ export default function AccelerateWebsite() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-                <a
-                href="#hero">
-              <img
-                src="/logo1.png"
-                alt="Accelerate - Learn, Innovate"
-                className="h-10 sm:h-20 md:h-10 w-auto object-contain"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "flex";
-                }}
-              />
+              <a href="#hero">
+                <img
+                  src="/logo1.png"
+                  alt="Accelerate - Learn, Innovate"
+                  className="h-10 sm:h-20 md:h-10 w-auto object-contain"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "flex";
+                  }}
+                />
               </a>
               <div
                 className="hidden items-center gap-2"
                 style={{ display: "none" }}
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-700 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">A</span>
                 </div>
-                <span className="text-xl font-bold text-slate-900">
+                <span className="text-xl font-bold text-gray-900">
                   Accelerate
                 </span>
               </div>
@@ -169,8 +171,8 @@ export default function AccelerateWebsite() {
                 href="#hero"
                 className={`px-3 lg:px-5 py-2 border-2 rounded-full font-medium transition text-sm ${
                   activeSection === "home"
-                    ? "text-slate-900 border-slate-700 bg-slate-100"
-                    : "text-slate-600 border-transparent hover:border-slate-400 hover:bg-slate-50"
+                    ? "text-gray-900 border-teal-500 bg-teal-50"
+                    : "text-gray-600 border-transparent hover:border-teal-400 hover:bg-teal-50"
                 }`}
               >
                 Home
@@ -179,8 +181,8 @@ export default function AccelerateWebsite() {
                 href="#features"
                 className={`px-3 lg:px-5 py-2 border-2 rounded-full font-medium transition text-sm ${
                   activeSection === "features"
-                    ? "text-slate-900 border-slate-700 bg-slate-100"
-                    : "text-slate-600 border-transparent hover:border-slate-400 hover:text-slate-900"
+                    ? "text-gray-900 border-teal-500 bg-teal-50"
+                    : "text-gray-600 border-transparent hover:border-teal-400 hover:text-gray-900"
                 }`}
               >
                 Features
@@ -189,8 +191,8 @@ export default function AccelerateWebsite() {
                 href="#about"
                 className={`px-3 lg:px-5 py-2 border-2 rounded-full font-medium transition text-sm ${
                   activeSection === "about"
-                    ? "text-slate-900 border-slate-700 bg-slate-100"
-                    : "text-slate-600 border-transparent hover:border-slate-400 hover:text-slate-900"
+                    ? "text-gray-900 border-teal-500 bg-teal-50"
+                    : "text-gray-600 border-transparent hover:border-teal-400 hover:text-gray-900"
                 }`}
               >
                 About
@@ -199,8 +201,8 @@ export default function AccelerateWebsite() {
                 href="#contact"
                 className={`px-3 lg:px-5 py-2 border-2 rounded-full font-medium transition text-sm ${
                   activeSection === "contact"
-                    ? "text-slate-900 border-slate-700 bg-slate-100"
-                    : "text-slate-600 border-transparent hover:border-slate-400 hover:text-slate-900"
+                    ? "text-gray-900 border-teal-500 bg-teal-50"
+                    : "text-gray-600 border-transparent hover:border-teal-400 hover:text-gray-900"
                 }`}
               >
                 Contact
@@ -213,19 +215,19 @@ export default function AccelerateWebsite() {
               aria-label="Toggle menu"
             >
               <span
-                className={`block absolute h-0.5 w-full bg-slate-900 rounded-full left-0 transition-all duration-300 ease-in-out origin-left ${
+                className={`block absolute h-0.5 w-full bg-gray-900 rounded-full left-0 transition-all duration-300 ease-in-out origin-left ${
                   mobileMenuOpen
                     ? "top-0 rotate-45 translate-x-1"
                     : "top-0 rotate-0 translate-x-0"
                 }`}
               />
               <span
-                className={`block absolute h-0.5 w-full bg-slate-900 rounded-full left-0 top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out origin-left ${
+                className={`block absolute h-0.5 w-full bg-gray-900 rounded-full left-0 top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out origin-left ${
                   mobileMenuOpen ? "w-0 opacity-0" : "w-full opacity-100"
                 }`}
               />
               <span
-                className={`block absolute h-0.5 w-full bg-slate-900 rounded-full left-0 bottom-0 transition-all duration-300 ease-in-out origin-left ${
+                className={`block absolute h-0.5 w-full bg-gray-900 rounded-full left-0 bottom-0 transition-all duration-300 ease-in-out origin-left ${
                   mobileMenuOpen
                     ? "-rotate-45 translate-x-1"
                     : "rotate-0 translate-x-0"
@@ -235,15 +237,15 @@ export default function AccelerateWebsite() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden bg-white shadow-lg border-t border-slate-100 py-4 mt-3 rounded-lg">
+            <div className="md:hidden bg-white shadow-lg border-t border-gray-100 py-4 mt-3 rounded-lg">
               <div className="flex flex-col gap-2 px-4">
                 <a
                   href="#hero"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg font-medium transition text-base ${
                     activeSection === "home"
-                      ? "text-slate-900 bg-slate-100 border-2 border-slate-700"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "text-gray-900 bg-teal-50 border-2 border-teal-500"
+                      : "text-gray-600 hover:bg-teal-50"
                   }`}
                 >
                   Home
@@ -253,8 +255,8 @@ export default function AccelerateWebsite() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg font-medium transition text-base ${
                     activeSection === "features"
-                      ? "text-slate-900 bg-slate-100 border-2 border-slate-700"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "text-gray-900 bg-teal-50 border-2 border-teal-500"
+                      : "text-gray-600 hover:bg-teal-50"
                   }`}
                 >
                   Features
@@ -264,8 +266,8 @@ export default function AccelerateWebsite() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg font-medium transition text-base ${
                     activeSection === "about"
-                      ? "text-slate-900 bg-slate-100 border-2 border-slate-700"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "text-gray-900 bg-teal-50 border-2 border-teal-500"
+                      : "text-gray-600 hover:bg-teal-50"
                   }`}
                 >
                   About
@@ -275,8 +277,8 @@ export default function AccelerateWebsite() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg font-medium transition text-base ${
                     activeSection === "contact"
-                      ? "text-slate-900 bg-slate-100 border-2 border-slate-700"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "text-gray-900 bg-teal-50 border-2 border-teal-500"
+                      : "text-gray-600 hover:bg-teal-50"
                   }`}
                 >
                   Contact
@@ -291,14 +293,14 @@ export default function AccelerateWebsite() {
         id="hero"
         className="relative min-h-[auto] md:min-h-screen flex items-center overflow-hidden pt-20 pb-8 md:pt-0 md:pb-0"
       >
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-10 md:top-0 right-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-slate-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
-          <div className="absolute top-32 md:top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-slate-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-10 left-1/2 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-slate-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-teal-50/30 to-white">
+          <div className="absolute top-10 md:top-0 right-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-teal-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
+          <div className="absolute top-32 md:top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-cyan-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-10 left-1/2 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-cyan-700/15 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
 
-          <div className="absolute top-20 right-1/4 w-48 sm:w-64 h-48 sm:h-64 border border-slate-200/40 rounded-full opacity-20"></div>
-          <div className="absolute bottom-32 left-1/4 w-36 sm:w-48 h-36 sm:h-48 border border-slate-200/40 rounded-full opacity-20"></div>
-          <div className="absolute top-1/2 right-1/3 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-slate-200/30 to-transparent rounded-lg transform rotate-45 opacity-30"></div>
+          <div className="absolute top-20 right-1/4 w-48 sm:w-64 h-48 sm:h-64 border border-teal-200/40 rounded-full opacity-20"></div>
+          <div className="absolute bottom-32 left-1/4 w-36 sm:w-48 h-36 sm:h-48 border border-cyan-200/40 rounded-full opacity-20"></div>
+          <div className="absolute top-1/2 right-1/3 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-teal-200/30 to-transparent rounded-lg transform rotate-45 opacity-30"></div>
         </div>
 
         <style>{`
@@ -367,7 +369,7 @@ export default function AccelerateWebsite() {
           <div className="flex flex-col md:grid md:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div className="space-y-4 sm:space-y-6 md:space-y-8 md:order-1 text-center md:text-left w-full">
               <h1
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-slate-900"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-gray-900"
                 style={{
                   fontFamily: "system-ui, -apple-system, sans-serif",
                   fontWeight: 600,
@@ -384,7 +386,7 @@ export default function AccelerateWebsite() {
                 />
               </div>
 
-              <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-light tracking-wide">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed font-light tracking-wide">
                 We deliver enterprise-grade software solutions and
                 industry-focused training programs that drive measurable
                 business growth and prepare tomorrow's tech talent.
@@ -392,7 +394,7 @@ export default function AccelerateWebsite() {
 
               <div className="flex justify-center md:justify-start pt-2">
                 <a href="#contact">
-                  <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-slate-700 to-slate-900 text-white rounded-full font-semibold text-base sm:text-lg flex items-center gap-3 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-teal-500 to-cyan-700 text-white rounded-full font-semibold text-base sm:text-lg flex items-center gap-3 hover:shadow-xl transition-all duration-300 hover:scale-105">
                     Schedule a Consultation
                     <svg
                       className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -425,26 +427,26 @@ export default function AccelerateWebsite() {
 
       <div
         id="features"
-        className="relative z-10 bg-gradient-to-b from-slate-50 to-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
+        className="relative z-10 bg-gradient-to-b from-teal-50/30 to-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16 scroll-animate">
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-slate-900"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-gray-900"
               style={{
                 fontFamily: "system-ui, -apple-system, sans-serif",
               }}
             >
               Comprehensive Solutions for Your Success
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-light tracking-wide px-4">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light tracking-wide px-4">
               End-to-end services designed to accelerate your digital journey
               and empower your team
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-slate-100 scroll-animate scroll-animate-delay-1">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-teal-100 scroll-animate scroll-animate-delay-1">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-500 to-cyan-700 rounded-xl flex items-center justify-center mb-6">
                 <svg
                   className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                   fill="none"
@@ -459,10 +461,10 @@ export default function AccelerateWebsite() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">
                 Enterprise Software Development
               </h3>
-              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 Build robust, scalable applications tailored to your business
                 needs. From cloud-native microservices to full-stack web
                 platforms, we architect solutions that enhance operational
@@ -470,8 +472,8 @@ export default function AccelerateWebsite() {
                 cutting-edge technologies and agile methodologies.
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-slate-100 scroll-animate scroll-animate-delay-2">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-teal-100 scroll-animate scroll-animate-delay-2">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-500 to-cyan-700 rounded-xl flex items-center justify-center mb-6">
                 <svg
                   className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                   fill="none"
@@ -486,46 +488,46 @@ export default function AccelerateWebsite() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">
                 Career Acceleration Program with Dimension
               </h3>
-              <p className="text-slate-600 mb-6 text-sm sm:text-base">
+              <p className="text-gray-600 mb-6 text-sm sm:text-base">
                 A comprehensive bootcamp designed for college students to bridge
                 the academic-industry gap and launch successful tech careers
                 with confidence.
               </p>
               <div className="space-y-4">
-                <h4 className="font-semibold text-base sm:text-lg text-slate-900">
+                <h4 className="font-semibold text-base sm:text-lg text-gray-900">
                   What You'll Master:
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Advanced Data Structures & Algorithm Problem-Solving
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Core Computer Science Fundamentals & System Design
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Real-world Industry Projects & Portfolio Development
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       24/7 Expert Mentorship & Doubt Resolution
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-slate-700 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-600 text-sm sm:text-base">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Interview Preparation & Career Guidance
                     </p>
                   </div>
@@ -543,10 +545,10 @@ export default function AccelerateWebsite() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6 order-2 md:order-1 scroll-animate scroll-animate-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-900">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
                 Your Strategic Technology Partner
               </h2>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 We collaborate with startups, growing businesses, and
                 established enterprises to architect and deploy innovative
                 technology solutions that deliver measurable ROI. Our expertise
@@ -555,9 +557,9 @@ export default function AccelerateWebsite() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-slate-400 flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 rounded-full border-2 border-teal-500 flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-4 h-4 text-slate-600"
+                      className="w-4 h-4 text-teal-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -570,14 +572,14 @@ export default function AccelerateWebsite() {
                       />
                     </svg>
                   </div>
-                  <p className="text-slate-700 text-sm sm:text-base lg:text-lg">
+                  <p className="text-gray-700 text-sm sm:text-base lg:text-lg">
                     15+ Years of Combined Industry Expertise
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-slate-400 flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 rounded-full border-2 border-teal-500 flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-4 h-4 text-slate-600"
+                      className="w-4 h-4 text-teal-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -590,14 +592,14 @@ export default function AccelerateWebsite() {
                       />
                     </svg>
                   </div>
-                  <p className="text-slate-700 text-sm sm:text-base lg:text-lg">
+                  <p className="text-gray-700 text-sm sm:text-base lg:text-lg">
                     Proven Agile & DevOps Methodologies
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-slate-400 flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 rounded-full border-2 border-teal-500 flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-4 h-4 text-slate-600"
+                      className="w-4 h-4 text-teal-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -610,16 +612,16 @@ export default function AccelerateWebsite() {
                       />
                     </svg>
                   </div>
-                  <p className="text-slate-700 text-sm sm:text-base lg:text-lg">
+                  <p className="text-gray-700 text-sm sm:text-base lg:text-lg">
                     Security-First Architecture & Scalable Solutions
                   </p>
                 </div>
               </div>
               <a href="#contact">
-              <button className="px-6 sm:px-8 py-3 bg-gradient-to-r from-slate-700 to-slate-900 text-white rounded-lg font-semibold text-base sm:text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                Discover Our Approach
-              </button>
-             </a>
+                <button className="px-6 sm:px-8 py-3 bg-gradient-to-r from-teal-500 to-cyan-700 text-white rounded-lg font-semibold text-base sm:text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  Discover Our Approach
+                </button>
+              </a>
             </div>
             <div className="relative order-1 md:order-2 scroll-animate scroll-animate-right">
               <img
@@ -634,14 +636,14 @@ export default function AccelerateWebsite() {
 
       <div
         id="contact"
-        className="relative z-10 bg-gradient-to-b from-slate-50 to-white py-20 px-8"
+        className="relative z-10 bg-gradient-to-b from-teal-50/30 to-white py-20 px-8"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 scroll-animate">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Get In Touch
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Have a question or ready to start your project? We'd love to hear
               from you.
             </p>
@@ -650,7 +652,7 @@ export default function AccelerateWebsite() {
             <div className="bg-white rounded-2xl p-8 shadow-lg scroll-animate scroll-animate-left">
               <div className="space-y-6">
                 <div>
-                  <label className="block text-slate-700 font-medium mb-2">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Name
                   </label>
                   <input
@@ -658,12 +660,12 @@ export default function AccelerateWebsite() {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-700 focus:outline-none transition"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none transition"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-700 font-medium mb-2">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Email
                   </label>
                   <input
@@ -671,12 +673,12 @@ export default function AccelerateWebsite() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-700 focus:outline-none transition"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none transition"
                     placeholder="your.email@example.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-700 font-medium mb-2">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Phone Number
                   </label>
                   <input
@@ -684,12 +686,12 @@ export default function AccelerateWebsite() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-700 focus:outline-none transition"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none transition"
                     placeholder="+91 XXXXX XXXXX"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-700 font-medium mb-2">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Subject
                   </label>
                   <input
@@ -697,12 +699,12 @@ export default function AccelerateWebsite() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-700 focus:outline-none transition"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none transition"
                     placeholder="How can we help?"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-700 font-medium mb-2">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Message
                   </label>
                   <textarea
@@ -710,13 +712,13 @@ export default function AccelerateWebsite() {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows="4"
-                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-slate-700 focus:outline-none transition resize-none"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:outline-none transition resize-none"
                     placeholder="Tell us about your project or inquiry..."
                   ></textarea>
                 </div>
                 <button
                   onClick={handleSubmit}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-slate-700 to-slate-900 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-700 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                 >
                   Send Message
                 </button>
@@ -725,7 +727,7 @@ export default function AccelerateWebsite() {
             <div className="space-y-8 scroll-animate scroll-animate-right">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-700 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -741,25 +743,25 @@ export default function AccelerateWebsite() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2 text-slate-900">
+                    <h3 className="font-bold text-lg mb-2 text-gray-900">
                       Phone
                     </h3>
                     <a
                       href="tel:+919876543210"
-                      className="text-slate-600 hover:text-slate-900 transition block"
+                      className="text-gray-600 hover:text-gray-900 transition block"
                     >
                       +91 8593076985
                     </a>
                     <a
                       href="tel:+919876543211"
-                      className="text-slate-600 hover:text-slate-900 transition block"
+                      className="text-gray-600 hover:text-gray-900 transition block"
                     >
                       +91 89215 98265
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-700 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -775,19 +777,19 @@ export default function AccelerateWebsite() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2 text-slate-900">
+                    <h3 className="font-bold text-lg mb-2 text-gray-900">
                       Email
                     </h3>
                     <a
                       href="mailto:info@accelerate.com"
-                      className="text-slate-600 hover:text-slate-900 transition"
+                      className="text-gray-600 hover:text-gray-900 transition"
                     >
                       accelerateamb@gmail.com
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-700 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -803,19 +805,19 @@ export default function AccelerateWebsite() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2 text-slate-900">
+                    <h3 className="font-bold text-lg mb-2 text-gray-900">
                       Business Hours
                     </h3>
-                    <p className="text-slate-600">
+                    <p className="text-gray-600">
                       Monday - Friday: 9:00 AM - 6:00 PM
                     </p>
-                    <p className="text-slate-600">
+                    <p className="text-gray-600">
                       Saturday: 10:00 AM - 4:00 PM
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-8 text-white">
+              <div className="bg-gradient-to-br from-teal-500 to-cyan-700 rounded-2xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-4">
                   Ready to Transform Your Business?
                 </h3>
@@ -826,13 +828,13 @@ export default function AccelerateWebsite() {
                 <div className="flex gap-4">
                   <a
                     href="tel:+919876543210"
-                    className="flex-1 bg-white text-slate-900 py-3 rounded-full font-semibold text-center hover:shadow-lg transition"
+                    className="flex-1 bg-white text-gray-900 py-3 rounded-full font-semibold text-center hover:shadow-lg transition"
                   >
                     Call Now
                   </a>
                   <a
                     href="mailto:info@accelerate.com"
-                    className="flex-1 bg-slate-800 text-white py-3 rounded-full font-semibold text-center hover:bg-slate-950 transition"
+                    className="flex-1 bg-cyan-800 text-white py-3 rounded-full font-semibold text-center hover:bg-cyan-900 transition"
                   >
                     Email Us
                   </a>
@@ -842,8 +844,7 @@ export default function AccelerateWebsite() {
           </div>
         </div>
       </div>
-
-      <footer className="relative z-10 bg-slate-900 text-white py-12 px-8">
+      <footer className="relative z-10 bg-gradient-to-br from-teal-600 to-cyan-700 text-white py-12 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-2">
@@ -858,13 +859,13 @@ export default function AccelerateWebsite() {
                   }}
                 />
                 <div className="hidden items-center gap-2">
-                  <div className="w-10 h-10 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-700 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-xl">A</span>
                   </div>
                   <span className="text-xl font-bold">Accelerate</span>
                 </div>
               </div>
-              <p className="text-slate-400 leading-relaxed max-w-md">
+              <p className="text-teal-50 leading-relaxed max-w-md">
                 Empowering businesses and individuals through innovative
                 technology solutions and comprehensive training programs. Your
                 trusted partner for digital transformation.
@@ -876,7 +877,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     Home
                   </a>
@@ -884,7 +885,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#features"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     Features
                   </a>
@@ -892,7 +893,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#about"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     About Us
                   </a>
@@ -900,7 +901,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#contact"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     Contact
                   </a>
@@ -913,7 +914,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#features"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     Software Development
                   </a>
@@ -921,7 +922,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#features"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     Training Programs
                   </a>
@@ -929,7 +930,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#contact"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     Consulting
                   </a>
@@ -937,7 +938,7 @@ export default function AccelerateWebsite() {
                 <li>
                   <a
                     href="#contact"
-                    className="text-slate-400 hover:text-white transition"
+                    className="text-teal-100 hover:text-white transition"
                   >
                     Support
                   </a>
@@ -945,15 +946,15 @@ export default function AccelerateWebsite() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-slate-800 pt-8">
+          <div className="border-t border-teal-400/30 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-slate-400 text-sm">
+              <p className="text-teal-100 text-sm">
                 © 2025 Accelerate. All rights reserved.
               </p>
               <div className="flex gap-6">
                 <a
                   href="https://www.instagram.com/edu_accelerate/"
-                  className="text-slate-400 hover:text-white transition"
+                  className="text-teal-100 hover:text-white transition transform hover:scale-110"
                   aria-label="Instagram"
                 >
                   <svg
@@ -966,7 +967,7 @@ export default function AccelerateWebsite() {
                 </a>
                 <a
                   href="https://www.linkedin.com/company/acceleratein/?viewAsMember=true"
-                  className="text-slate-400 hover:text-white transition"
+                  className="text-teal-100 hover:text-white transition transform hover:scale-110"
                   aria-label="LinkedIn"
                 >
                   <svg
@@ -986,7 +987,7 @@ export default function AccelerateWebsite() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
           aria-label="Scroll to top"
         >
           <svg
@@ -1004,7 +1005,6 @@ export default function AccelerateWebsite() {
           </svg>
         </button>
       )}
-
     </div>
   );
 }
